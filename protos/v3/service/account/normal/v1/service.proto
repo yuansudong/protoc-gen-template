@@ -1,0 +1,70 @@
+syntax = "proto3";
+package service.account.v1;
+//////////////////////////////////////////////////////////////////////////////
+// option
+//////////////////////////////////////////////////////////////////////////////
+
+option go_package = "github.com/yuansudong/protoc-gen-template/gen/gopb/service/account/normal/pbv1;pbv1";
+
+import "google/api/annotations.proto";
+//////////////////////////////////////////////////////////////////////////////
+// document
+//////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////
+// document
+//////////////////////////////////////////////////////////////////////////////
+
+
+// C2SInnerLogin 内部用户登录请求
+message C2SInnerLogin {
+  // UserName  用户名
+  string UserName = 1;
+  // Passsword 密码
+  string Password = 2;
+  // AppID 引用ID
+  string AppID = 3;
+
+}
+// S2CInnerLogin 内部用户登录响应
+message S2CInnerLogin {
+  // Token 访问令牌
+  string Token = 1;
+}
+
+
+
+
+
+// C2SInnerSignin 内部用户注册请求
+message C2SInnerSignin {
+  // UserName  用户名
+  string UserName = 1;
+  // Passsword 密码
+  string Password = 2;
+  // AppID 引用程序ID
+  string AppID = 3;
+
+}
+// S2CInnerUserSignin 注册时的响应
+message S2CInnerSignin {
+  string Token = 1;
+}
+// V1 账户服务V1版本
+service V1 {
+  // InnerLogin 公司渠道登录
+  rpc InnerLogin(C2SInnerLogin) returns (S2CInnerLogin) {
+    option (google.api.http) = {
+      post: "/v1/inner/login"
+      body: "*"
+    };
+  };
+  // InnerSignin 公司渠道注册
+  rpc InnerSignin(C2SInnerSignin) returns (S2CInnerSignin) {
+    option (google.api.http) = {
+      post: "/v1/inner/signin"
+      body: "*"
+    };
+  };
+}

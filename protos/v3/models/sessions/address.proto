@@ -1,0 +1,38 @@
+syntax = "proto3";
+package models.sessions;
+
+//////////////////////////////////////////////////////////////////////////////
+// option
+//////////////////////////////////////////////////////////////////////////////
+
+option go_package = "github.com/yuansudong/protoc-gen-template/gen/gopb/models/sessions/pbmsessions;pbmsessions";
+
+
+
+message Address {
+  // UID 用户的UID
+  uint64 UID = 1;
+  // Gear 齿轮
+  uint64 Gear = 2;
+  // AppID 应用程序ID
+  string AppID = 3;
+  // NodeID 结点ID
+  string NodeID = 6 ;
+  // ConnectID 连接ID
+  string ConnectID = 7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

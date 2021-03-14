@@ -1,0 +1,32 @@
+syntax = "proto3";
+package models.sessions;
+
+//////////////////////////////////////////////////////////////////////////////
+// option
+//////////////////////////////////////////////////////////////////////////////
+
+option go_package = "github.com/yuansudong/protoc-gen-template/pbmsessions;pbmsessions";
+
+import "models/sessions/address.proto";
+
+
+
+
+// Online 上线
+message Online {
+  models.sessions.Address Addr = 1;
+  // PushToken 用于推送时的token
+  string PushToken = 2;
+}
+
+
+
+// Offline 下线
+message Offline {
+  // StartTimestamp 开始时间戳
+  int64 StartTimestamp = 2;
+  // EndTimestamp 结束时间戳
+  int64 EndTimestamp = 3;
+}
+
+

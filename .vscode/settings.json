@@ -1,0 +1,14 @@
+{
+    "clang-format.style": "google",
+    "go.inferGopath": false,
+    "protoc": {
+        "path": "${workspaceRoot}/protoc.exe",
+        "compile_on_save": true,
+        "options": [
+            "--proto_path=${workspaceRoot}/protos/v3",
+            "--go_out=plugins=grpc:${env.GOPATH}/src",
+            "--grpc-gateway_out=logtostderr=true:${env.GOPATH}/src",
+            "--template_out=fix=go;import_prefix=cccc:${env.GOPATH}/src",
+        ]
+    },
+}
